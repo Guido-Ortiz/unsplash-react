@@ -1,4 +1,4 @@
-import { GET_PHOTOS } from "../actions/constants"
+import { GET_PHOTOS, SEARCH_PHOTOS } from "../actions/constants";
 
 const initialState = {
     photos: [],
@@ -18,7 +18,13 @@ const rootReducer = (state = initialState, action) => {
                 filters: action.payload
             }
         //break;
-
+        case SEARCH_PHOTOS:
+            return {
+                ...state,
+                photos: action.payload,
+                allPhotos: action.payload,
+                filters: action.payload
+            }
 
         default:
             return state
