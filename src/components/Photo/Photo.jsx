@@ -6,13 +6,16 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { red } from '@mui/material/colors';
+import { useDispatch } from 'react-redux';
+import { addPhoto } from '../../redux/actions/actions';
 
 const Photo = ({ id, title, description, width, heigth, likes, url_full, url_thumb }) => {
-  const [expanded, setExpanded] = React.useState(false);
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
+  const dispatch = useDispatch()
+
+  const handleClick = () => {
+    dispatch(addPhoto({id, title, description, width, heigth, likes, url_full, url_thumb}))
+  }
 
   return (
     <Card sx={{ width: 300, borderRadius: '4px', margin: '26px', boxShadow: '0px 0px 0px 1px #E0E0E0'}}>
@@ -54,7 +57,7 @@ const Photo = ({ id, title, description, width, heigth, likes, url_full, url_thu
             <FavoriteIcon />
           </IconButton>
         </Tooltip>
-        <Tooltip title="Add to My Photos">
+        <Tooltip title="Add to My Photos" onClick={handleClick}>
           <IconButton>
             <AddIcon />
           </IconButton>

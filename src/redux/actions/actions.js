@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_PHOTOS, SEARCH_PHOTOS } from './constants';
+import { ADD_PHOTO, GET_PHOTOS, SEARCH_PHOTOS } from './constants';
 
 export function getPhotos(){
     return async function(dispatch){
@@ -17,7 +17,6 @@ export function getPhotos(){
 }
 
 export function searchPhotos(search){
-    console.log(search)
     return async function(dispatch){
         try {
             const response = await axios.get(`https://api.unsplash.com/search/photos?page=1&query=${search}&client_id=8-HoFBL24ef3QeM66u8MJePbw0Ec1ukWYes5Y7A7CHc`)
@@ -28,5 +27,12 @@ export function searchPhotos(search){
         } catch(e) {
             console.log(e)
         }
+    }
+}
+
+export function addPhoto(payload){
+    return{
+        type: ADD_PHOTO,
+        payload
     }
 }

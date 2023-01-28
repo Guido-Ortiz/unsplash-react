@@ -10,7 +10,6 @@ const Photos = () => {
   return (
     <div>
       <Header title='Unsplash' subtitle='Internets photo source' />
-      {/* <div className={s.container}> */}
         {
           photos
             ? <div className={s.container}>
@@ -26,31 +25,11 @@ const Photos = () => {
               </div>
             : <p>no hay fotos yet</p>
         }
-      {/* </div> */}
     </div>
   )
 
 
-  // if(photos){
-  //   return(
-  //       <div className={s.container}>
-  //     {/* <Header title='Unsplash' subtitle='Internets photo source' /> */}
-  //     {/* <div className={s.container}> */}
-        
-  //             {photos.results?.map(e => {
-  //               return(
-  //                 <div key={e.id}>
-  //                   <Photo id={e.id} title={e.description} description={e.alt_description} width={e.width} heigth={e.height} likes={e.likes} url_full={e.urls.full} url_thumb={e.urls.thumb}  />
-  //                 </div>
-  //               )
-  //             })}
-            
-              
-        
-  //     {/* </div> */}
-  //   </div>
-  //   )
-  // }
+  
 }
 
 export default Photos

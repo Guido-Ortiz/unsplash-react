@@ -1,9 +1,10 @@
-import { GET_PHOTOS, SEARCH_PHOTOS } from "../actions/constants";
+import { ADD_PHOTO, GET_PHOTOS, SEARCH_PHOTOS } from "../actions/constants";
 
 const initialState = {
     photos: [],
     allPhotos: [],
     filters: [],
+    favorites: []
     // diets: [],
     // detail: null
 }
@@ -24,6 +25,12 @@ const rootReducer = (state = initialState, action) => {
                 photos: action.payload,
                 allPhotos: action.payload,
                 filters: action.payload
+            }
+
+        case ADD_PHOTO:
+            return {
+                ...state,
+                favorites: [...state.favorites, action.payload]
             }
 
         default:
