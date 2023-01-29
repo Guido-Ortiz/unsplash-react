@@ -1,4 +1,4 @@
-import { ADD_PHOTO, GET_PHOTOS, SEARCH_PHOTOS } from "../actions/constants";
+import { ADD_PHOTO, GET_PHOTOS, REMOVE_PHOTO, SEARCH_PHOTOS, EDIT_PHOTO } from "../actions/constants";
 
 const initialState = {
     photos: [],
@@ -32,6 +32,16 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 favorites: [...state.favorites, action.payload]
             }
+
+        case REMOVE_PHOTO:
+            return{
+                ...state,
+                favorites: state.favorites.filter(photos => photos.id !== action.payload)
+            }
+
+        case EDIT_PHOTO:
+            const photo = state.favorites.find(e => e.id === action.payload)
+            console.log(state.favorites) 
 
         default:
             return state

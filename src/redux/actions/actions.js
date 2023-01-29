@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ADD_PHOTO, GET_PHOTOS, SEARCH_PHOTOS } from './constants';
+import { ADD_PHOTO, GET_PHOTOS, REMOVE_PHOTO, SEARCH_PHOTOS, EDIT_PHOTO } from './constants';
 
 export function getPhotos(){
     return async function(dispatch){
@@ -33,6 +33,20 @@ export function searchPhotos(search){
 export function addPhoto(payload){
     return{
         type: ADD_PHOTO,
+        payload
+    }
+}
+
+export function removePhoto(id){
+    return{
+        type: REMOVE_PHOTO,
+        payload: id
+    }
+}
+
+export function editPhoto(payload){
+    return{
+        type: EDIT_PHOTO,
         payload
     }
 }
