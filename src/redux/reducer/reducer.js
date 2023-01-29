@@ -40,9 +40,14 @@ const rootReducer = (state = initialState, action) => {
             }
 
         case EDIT_PHOTO:
-            const photo = state.favorites.find(e => e.id === action.payload)
-            console.log(state.favorites) 
-
+            // console.log(action.payload)
+            const photo = state.favorites.find(e => e.id === action.payload.id)
+            photo.description = action.payload.newDescription
+            // console.log(photo) 
+            return{
+                ...state,
+                favorites: state.favorites.map(e => e)
+            }
         default:
             return state
         //break;

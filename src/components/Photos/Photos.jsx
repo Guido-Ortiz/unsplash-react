@@ -6,7 +6,7 @@ import s from './Photos.module.css';
 
 const Photos = () => {
   const photos = useSelector(state => state.photos)
-  
+
   return (
     <div>
       <Header title='Unsplash' subtitle='Internets photo source' />

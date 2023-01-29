@@ -15,9 +15,11 @@ const Photo = ({ id, title, description, width, heigth, likes, url_full, url_thu
 
   return (
     <Card sx={{ width: 300, borderRadius: '4px', margin: '26px', boxShadow: '0px 0px 0px 1px #E0E0E0' }}>
+
       <CardMedia component="img" height="194" image={url_full} alt={description} />
-      <CardHeader title={title ? title : 'Photo'} subheader="September 14, 2016" />
-      <CardContent>
+      {/* <CardHeader title={title ? title : 'Photo'} subheader="September 14, 2016" /> */}
+      <CardHeader title={description ? description : 'Photo'} subheader="September 14, 2016" />
+      <CardContent sx={{padding: '0px'}}>
         <Stack direction="row" spacing={1}>
           <Chip label={`Height: ${heigth}`} sx={{ background: '#E8EAF6', color: '#3F51B5', fontWeight: '400', fontSize: '13px', letterSpacing: '0,16px', lineHeight: '18px', padding: '6px 3px' }} />
           <Chip label={`Width: ${width}`} sx={{ background: '#E8EAF6', color: '#673AB7', fontWeight: '400', fontSize: '13px', letterSpacing: '0,16px', lineHeight: '18px', padding: '6px 3px' }} />
@@ -36,21 +38,6 @@ const Photo = ({ id, title, description, width, heigth, likes, url_full, url_thu
           </IconButton>
         </Tooltip>
       </CardActions>
-
-      {/* <CardActions>
-        <Stack direction="row" justifyContent="flex-end" alignItems="flex-start" spacing={2} sx={{border: '1px solid green', width: '100%'}}>
-          <Tooltip title='Remove from My Photos'>
-            <IconButton>
-              <DeleteIcon />
-            </IconButton>
-          </Tooltip>
-          <Tooltip title='Edit Photo description'>
-            <IconButton>
-              <EditIcon />
-            </IconButton>
-          </Tooltip>
-        </Stack>
-      </CardActions> */}
 
     </Card>
   );
