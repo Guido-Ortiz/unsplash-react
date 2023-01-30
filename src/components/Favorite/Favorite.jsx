@@ -4,6 +4,7 @@ import { editPhoto, removePhoto } from '../../redux/actions/actions';
 import { Card, CardHeader, CardMedia, CardContent, CardActions, IconButton, Chip, Stack, Tooltip, Modal, Box, Typography, TextField, Button } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
+import { FavoriteOutlined } from '@mui/icons-material';
 
 const style = {
     position: 'absolute',
@@ -52,7 +53,10 @@ const Favorite = ({ id, title, description, width, heigth, likes, url_full, url_
                      }} />
                         <Chip label={`Width: ${width}`} sx={{ background: '#E8EAF6', color: '#673AB7', fontWeight: '400', fontSize: '13px', letterSpacing: '0,16px', lineHeight: '18px', padding: '6px 3px' }} />
                     </Stack>
-                    <Typography variant='subtitle2'>{likes}</Typography>
+                    <Stack direction="row" justifyContent="flex-start" alignItems="center" sx={{color: '#777777', marginTop: '10px', padding: '5px'}}>
+                        <FavoriteOutlined />
+                        <Typography variant='subtitle2' sx={{color: '#777777', marginLeft: '10px'}}>{likes}</Typography>
+                    </Stack>
                 </CardContent>
 
                 <CardActions>

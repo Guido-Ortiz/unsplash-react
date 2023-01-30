@@ -1,27 +1,28 @@
-import * as React from 'react';
-import { AppBar, Box, Toolbar, IconButton, Typography, Menu, Container, Button, Tooltip, MenuItem, TextField} from '@mui/material';
-// import AppBar from '@mui/material/AppBar';
-// import Box from '@mui/material/Box';
-// import Toolbar from '@mui/material/Toolbar';
-// import IconButton from '@mui/material/IconButton';
-// import Typography from '@mui/material/Typography';
-// import Menu from '@mui/material/Menu';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { searchPhotos } from '../../redux/actions/actions';
+import { AppBar, Box, Toolbar, IconButton, Typography, Menu, Container, Button, Tooltip, MenuItem, TextField, Paper, InputBase, Divider } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-// import Container from '@mui/material/Container';
-// import Avatar from '@mui/material/Avatar';
-// import Button from '@mui/material/Button';
-// import Tooltip from '@mui/material/Tooltip';
-// import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import { Link } from 'react-router-dom';
-// import { TextField } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
+
 
 const pages = ['My Photos'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const Navbar = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [anchorElUser, setAnchorElUser] = useState(null);
+
+  const [search, setSearch] = useState('')
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const handleSearch = () => {
+    dispatch(searchPhotos(search))
+    navigate('/home')
+  }
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -39,25 +40,25 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="static" sx={{backgroundColor: '#007DED'}}>
+    <AppBar position="static" sx={{ backgroundColor: '#007DED' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Link to='/' style={{textDecoration: 'none'}}>
-          <Typography variant="h6" noWrap component="a" href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-              color: '#fff'
-            }}
-          >
-            Unsplash
-          </Typography>
+          <Link to='/' style={{ textDecoration: 'none' }}>
+            <Typography variant="h6" noWrap component="a" href="/"
+              sx={{
+                mr: 2,
+                display: { xs: 'none', md: 'flex' },
+                fontFamily: 'monospace',
+                fontWeight: 700,
+                letterSpacing: '.3rem',
+                color: 'inherit',
+                textDecoration: 'none',
+                color: '#fff'
+              }}
+            >
+              Unsplash
+            </Typography>
           </Link>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -120,25 +121,24 @@ const Navbar = () => {
               //   {page}
               // </Button>
               <Link to='/favorites' style={{ textDecoration: 'none' }}>
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
+                <Button
+                  key={page}
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: 'white', display: 'block' }}
+                >
+                  {page}
+                </Button>
               </Link>
             ))}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Search photos">
-              {/* <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton> */}
-              <TextField />
-
-            </Tooltip>
+            <Paper component="form" sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400, border: 'none' }}>
+              <InputBase placeholder="Search Photos" inputProps={{ 'aria-label': 'search photos' }} sx={{ ml: 1, flex: 1 }} name='search' value={search} onChange={e => setSearch(e.target.value)} />
+              <IconButton type="button" sx={{ p: '10px' }} aria-label="search" onClick={handleSearch}>
+                <SearchIcon />
+              </IconButton>
+            </Paper>
             <Menu
               sx={{ mt: '45px' }}
               id="menu-appbar"

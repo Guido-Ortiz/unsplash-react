@@ -4,6 +4,7 @@ import Favorite from '../Favorite/Favorite';
 import Header from '../Header/Header';
 import Navbar from '../Navbar/Navbar';
 import SelectOrder from '../SelectOrder/SelectOrder';
+import { Typography, Box } from '@mui/material';
 import s from './Favorites.module.css';
 
 const Favorites = () => {
@@ -14,7 +15,10 @@ const Favorites = () => {
         <div>
             <Navbar />
             <Header title='My Photos' subtitle='Take a look at all your saved photos.' />
-            <SelectOrder />
+            <Box sx={{padding: '10px 0'}}>
+                <Typography variant='subttitle2' sx={{ color: '#777777', marginLeft: '30px' }}>Order your photos by heigth, width, likes or date.</Typography>
+                <SelectOrder />
+            </Box>
 
             {
                 favorites
