@@ -4,7 +4,9 @@ import { editPhoto, removePhoto } from '../../redux/actions/actions';
 import { Card, CardHeader, CardMedia, CardContent, CardActions, IconButton, Chip, Stack, Tooltip, Modal, Box, Typography, TextField, Button } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
+import DownloadIcon from '@mui/icons-material/Download';
 import { FavoriteOutlined } from '@mui/icons-material';
+import { saveAs } from 'file-saver';
 
 const style = {
     position: 'absolute',
@@ -42,6 +44,10 @@ const Favorite = ({ id, title, description, width, heigth, likes, url_full, url_
         setOpen(false)
     }
 
+    const handleDownload = () => {
+        saveAs(url_full, 'image.jpg')
+    }
+
     return (
         <div>
             <Card sx={{ width: 300, borderRadius: '4px', margin: '26px', boxShadow: '0px 0px 0px 1px #E0E0E0' }}>
@@ -69,6 +75,11 @@ const Favorite = ({ id, title, description, width, heigth, likes, url_full, url_
                         <Tooltip title='Edit Photo description' onClick={handleOpen}>
                             <IconButton>
                                 <EditIcon />
+                            </IconButton>
+                        </Tooltip>
+                        <Tooltip title='Download Photo' onClick={handleDownload}>
+                            <IconButton>
+                                <DownloadIcon />
                             </IconButton>
                         </Tooltip>
                     </Stack>
