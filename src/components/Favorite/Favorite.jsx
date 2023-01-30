@@ -18,7 +18,7 @@ const style = {
 };
 
 
-const Favorite = ({ id, title, description, width, heigth, likes, url_full, url_thumb }) => {
+const Favorite = ({ id, title, description, width, heigth, likes, url_full, url_thumb, liked }) => {
 
     const [open, setOpen] = useState(false);
     const [newDescription, setNewDescription] = useState(title)
@@ -45,13 +45,14 @@ const Favorite = ({ id, title, description, width, heigth, likes, url_full, url_
         <div>
             <Card sx={{ width: 300, borderRadius: '4px', margin: '26px', boxShadow: '0px 0px 0px 1px #E0E0E0' }}>
                 <CardMedia component="img" height="194" image={url_full} alt={description} />
-                <CardHeader title={title ? title : 'Photo'} subheader="September 14, 2016" />
+                <CardHeader title={title ? title : 'Photo'} subheader={liked} />
                 <CardContent sx={{padding: '10px'}}>
                     <Stack direction="row" justifyContent="flex-start" alignItems="flex-start" spacing={1}>
                         <Chip label={`Height: ${heigth}`} sx={{ background: '#E8EAF6', color: '#3F51B5', fontWeight: '400', fontSize: '13px', letterSpacing: '0,16px', lineHeight: '18px', padding: '6px 3px'
                      }} />
                         <Chip label={`Width: ${width}`} sx={{ background: '#E8EAF6', color: '#673AB7', fontWeight: '400', fontSize: '13px', letterSpacing: '0,16px', lineHeight: '18px', padding: '6px 3px' }} />
                     </Stack>
+                    <Typography variant='subtitle2'>{likes}</Typography>
                 </CardContent>
 
                 <CardActions>

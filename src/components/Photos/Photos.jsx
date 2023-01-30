@@ -5,6 +5,7 @@ import Photo from '../Photo/Photo';
 import s from './Photos.module.css';
 
 const Photos = () => {
+
   const photos = useSelector(state => state.photos)
 
   return (
@@ -17,7 +18,7 @@ const Photos = () => {
               {photos.results?.map(e => {
                 return(
                   <div key={e.id}>
-                    <Photo id={e.id} title={e.description} description={e.alt_description} width={e.width} heigth={e.height} likes={e.likes} url_full={e.urls.full} url_thumb={e.urls.thumb}  />
+                    <Photo id={e.id} title={e.description} description={e.alt_description} width={e.width} heigth={e.height} likes={e.likes} url_full={e.urls.full} url_thumb={e.urls.thumb} />
                   </div>
                 )
               })}

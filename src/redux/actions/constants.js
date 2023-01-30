@@ -3,3 +3,7 @@ export const SEARCH_PHOTOS = 'SEARCH_PHOTOS';
 export const ADD_PHOTO = 'ADD_PHOTO';
 export const REMOVE_PHOTO = 'REMOVE_PHOTO';
 export const EDIT_PHOTO = 'EDIT_PHOTO';
+export const ORDER_HEIGTH = 'ORDER_HEIGTH';
+export const ORDER_WIDTH = 'ORDER_WIDTH';
+export const ORDER_LIKES = 'ORDER_LIKES';
+export const ORDER_DATE = 'ORDER_DATE';
