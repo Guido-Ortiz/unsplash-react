@@ -22,7 +22,7 @@ const Photo = ({ id, title, description, width, heigth, likes, url_full, url_thu
       <CardMedia component="img" height="194" image={url_full} alt={description} />
       {/* <CardHeader title={title ? title : 'Photo'} subheader="September 14, 2016" /> */}
       <CardHeader title={description ? description : 'Photo'} subheader={"September 14, 2016"} />
-      <CardContent sx={{padding: '0px'}}>
+      <CardContent sx={{padding: '0 10px'}}>
         <Stack direction="row" spacing={1}>
           <Chip label={`Height: ${heigth}`} sx={{ background: '#E8EAF6', color: '#3F51B5', fontWeight: '400', fontSize: '13px', letterSpacing: '0,16px', lineHeight: '18px', padding: '6px 3px' }} />
           <Chip label={`Width: ${width}`} sx={{ background: '#E8EAF6', color: '#673AB7', fontWeight: '400', fontSize: '13px', letterSpacing: '0,16px', lineHeight: '18px', padding: '6px 3px' }} />

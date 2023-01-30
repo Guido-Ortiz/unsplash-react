@@ -40,7 +40,7 @@ const Favorite = ({ id, title, description, width, heigth, likes, url_full, url_
     }
 
     const handleEdit = () => {
-        dispatch(editPhoto({id, newDescription}))
+        dispatch(editPhoto({ id, newDescription }))
         setOpen(false)
     }
 
@@ -53,20 +53,21 @@ const Favorite = ({ id, title, description, width, heigth, likes, url_full, url_
             <Card sx={{ width: 300, borderRadius: '4px', margin: '26px', boxShadow: '0px 0px 0px 1px #E0E0E0' }}>
                 <CardMedia component="img" height="194" image={url_full} alt={description} />
                 <CardHeader title={title ? title : 'Photo'} subheader={liked} />
-                <CardContent sx={{padding: '10px'}}>
+                <CardContent sx={{ padding: '0 10px' }}>
                     <Stack direction="row" justifyContent="flex-start" alignItems="flex-start" spacing={1}>
-                        <Chip label={`Height: ${heigth}`} sx={{ background: '#E8EAF6', color: '#3F51B5', fontWeight: '400', fontSize: '13px', letterSpacing: '0,16px', lineHeight: '18px', padding: '6px 3px'
-                     }} />
+                        <Chip label={`Height: ${heigth}`} sx={{
+                            background: '#E8EAF6', color: '#3F51B5', fontWeight: '400', fontSize: '13px', letterSpacing: '0,16px', lineHeight: '18px', padding: '6px 3px'
+                        }} />
                         <Chip label={`Width: ${width}`} sx={{ background: '#E8EAF6', color: '#673AB7', fontWeight: '400', fontSize: '13px', letterSpacing: '0,16px', lineHeight: '18px', padding: '6px 3px' }} />
                     </Stack>
-                    <Stack direction="row" justifyContent="flex-start" alignItems="center" sx={{color: '#777777', marginTop: '10px', padding: '5px'}}>
+                    <Stack direction="row" justifyContent="flex-start" alignItems="center" sx={{ color: '#777777', marginTop: '10px', padding: '5px' }}>
                         <FavoriteOutlined />
-                        <Typography variant='subtitle2' sx={{color: '#777777', marginLeft: '10px'}}>{likes}</Typography>
+                        <Typography variant='subtitle2' sx={{ color: '#777777', marginLeft: '10px' }}>{likes}</Typography>
                     </Stack>
                 </CardContent>
 
                 <CardActions>
-                    <Stack direction="row" justifyContent="flex-end" alignItems="flex-start" spacing={2} sx={{width: '100%' }}>
+                    <Stack direction="row" justifyContent="flex-end" alignItems="flex-start" spacing={2} sx={{ width: '100%' }}>
                         <Tooltip title='Remove from My Photos' onClick={handleDelete}>
                             <IconButton>
                                 <DeleteIcon />
@@ -87,15 +88,18 @@ const Favorite = ({ id, title, description, width, heigth, likes, url_full, url_
                 </CardActions>
             </Card>
 
+            {/* MODAL */}
             <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
                 <Box sx={style}>
                     <Typography id="modal-modal-title" variant="h6" component="h2">Edit Photo Description {id}</Typography>
                     <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                         Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
                     </Typography>
-                    <TextField variant='outlined' label='description' name='newDescription' value={newDescription} onChange={e => setNewDescription(e.target.value)} />
-                    
-                    <Button onClick={handleEdit}>Edit Description</Button>
+                    <Stack direction='column' justifyContent='flex-start' alignItems='flex-start'>
+                        <TextField fullWidth  variant='outlined' label='Description' name='newDescription' value={newDescription} onChange={e => setNewDescription(e.target.value)} sx={{margin: '20px 0'}} />
+                        <Button variant="contained" onClick={handleEdit}>Edit Description</Button>
+                    </Stack>
+
                 </Box>
             </Modal>
 

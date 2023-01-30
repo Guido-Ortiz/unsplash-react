@@ -39,7 +39,7 @@ const SelectOrder = () => {
         <Box sx={{ minWidth: 120, marginLeft: '30px', marginTop: '20px'}}>
             <FormControl sx={{ width: '200px', marginRight: '30px' }}>
                 <InputLabel id="demo-simple-select-label">Height</InputLabel>
-                <Select labelId="demo-simple-select-label" id="demo-simple-select" value={heigth} label="Height" onChange={handleChange}>
+                <Select labelId="demo-simple-select-label" id="demo-simple-select" value={heigth} label="Height" onChange={handleChange} sx={{background: '#fff'}}>
                     <MenuItem value='all'>All</MenuItem>
                     <MenuItem value='heigth+'>+ Heigth</MenuItem>
                     <MenuItem value='heigth-'>- Height</MenuItem>
@@ -49,7 +49,7 @@ const SelectOrder = () => {
             {/* WIDTH */}
             <FormControl sx={{ width: '200px', marginRight: '30px' }}>
                 <InputLabel id="demo-simple-select-label">Width</InputLabel>
-                <Select labelId="demo-simple-select-label" id="demo-simple-select" value={width} label="Width" onChange={handleWidth}>
+                <Select labelId="demo-simple-select-label" id="demo-simple-select" value={width} label="Width" onChange={handleWidth} sx={{background: '#fff'}}>
                     <MenuItem value='all'>All</MenuItem>
                     <MenuItem value='width+'>+ Width</MenuItem>
                     <MenuItem value='width-'>- Width</MenuItem>
@@ -59,7 +59,7 @@ const SelectOrder = () => {
             {/* LIKES */}
             <FormControl sx={{ width: '200px', marginRight: '30px' }}>
                 <InputLabel id="demo-simple-select-label">Likes</InputLabel>
-                <Select labelId="demo-simple-select-label" id="demo-simple-select" value={likes} label="Likes" onChange={handleLikes}>
+                <Select labelId="demo-simple-select-label" id="demo-simple-select" value={likes} label="Likes" onChange={handleLikes} sx={{background: '#fff'}}>
                     <MenuItem value='all'>All</MenuItem>
                     <MenuItem value='likes+'>+ Likes</MenuItem>
                     <MenuItem value='likes-'>- Likes</MenuItem>
@@ -69,7 +69,7 @@ const SelectOrder = () => {
             {/* FECHA */}
             <FormControl sx={{ width: '200px', marginRight: '30px' }}>
                 <InputLabel id="demo-simple-select-label">Date</InputLabel>
-                <Select labelId="demo-simple-select-label" id="demo-simple-select" value={date} label="Date" onChange={handleDate}>
+                <Select labelId="demo-simple-select-label" id="demo-simple-select" value={date} label="Date" onChange={handleDate} sx={{background: '#fff'}}>
                     <MenuItem value='all'>All</MenuItem>
                     <MenuItem value='new'>Newest</MenuItem>
                     <MenuItem value='old'>Oldest</MenuItem>

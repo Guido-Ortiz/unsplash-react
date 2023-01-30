@@ -1,48 +1,11 @@
-import { ADD_PHOTO, GET_PHOTOS, REMOVE_PHOTO, SEARCH_PHOTOS, EDIT_PHOTO, ORDER_HEIGTH, ORDER_WIDTH, ORDER_LIKES, ORDER_DATE } from "../actions/constants";
+import { ADD_PHOTO, GET_PHOTOS, REMOVE_PHOTO, SEARCH_PHOTOS, EDIT_PHOTO, ORDER_HEIGTH, ORDER_WIDTH, ORDER_LIKES, ORDER_DATE, SEARCH_PHOTO_DESCRIPTION } from "../actions/constants";
 
 const initialState = {
     photos: [],
     allPhotos: [],
     filters: [],
-    favorites: [{
-        id: "9HI8UJMSdZA",
-        title: "Relay runner",
-        description: "man on running field",
-        width: 3481,
-        heigth: 2321,
-        likes: 1601,
-        url_full: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?crop=entropy&cs=tinysrgb&fm=jpg&ixid=Mnw0MDM1OTJ8MHwxfHNlYXJjaHwyfHxzcG9ydHxlbnwwfHx8fDE2NzQ5ODUyNTE&ixlib=rb-4.0.3&q=80",
-        url_thumb: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw0MDM1OTJ8MHwxfHNlYXJjaHwyfHxzcG9ydHxlbnwwfHx8fDE2NzQ5ODUyNTE&ixlib=rb-4.0.3&q=80&w=200", liked: "11/01/2022"
-    }, {
-        id: "2",
-        title: "aaaa",
-        description: "bbbbbbbb",
-        width: 23,
-        heigth: 4000,
-        likes: 32,
-        url_full: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?crop=entropy&cs=tinysrgb&fm=jpg&ixid=Mnw0MDM1OTJ8MHwxfHNlYXJjaHwyfHxzcG9ydHxlbnwwfHx8fDE2NzQ5ODUyNTE&ixlib=rb-4.0.3&q=80",
-        url_thumb: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw0MDM1OTJ8MHwxfHNlYXJjaHwyfHxzcG9ydHxlbnwwfHx8fDE2NzQ5ODUyNTE&ixlib=rb-4.0.3&q=80&w=200", liked: "12/02/2022"
-    }],
-    allFavorites: [{
-        id: "9HI8UJMSdZA",
-        title: "Relay runner",
-        description: "man on running field",
-        width: 3481,
-        heigth: 2321,
-        likes: 1601,
-        url_full: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?crop=entropy&cs=tinysrgb&fm=jpg&ixid=Mnw0MDM1OTJ8MHwxfHNlYXJjaHwyfHxzcG9ydHxlbnwwfHx8fDE2NzQ5ODUyNTE&ixlib=rb-4.0.3&q=80",
-        url_thumb: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw0MDM1OTJ8MHwxfHNlYXJjaHwyfHxzcG9ydHxlbnwwfHx8fDE2NzQ5ODUyNTE&ixlib=rb-4.0.3&q=80&w=200", liked: "11/01/2022"
-    }, {
-        id: "2",
-        title: "aaaa",
-        description: "bbbbbbbb",
-        width: 23,
-        heigth: 4000,
-        likes: 32,
-        url_full: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?crop=entropy&cs=tinysrgb&fm=jpg&ixid=Mnw0MDM1OTJ8MHwxfHNlYXJjaHwyfHxzcG9ydHxlbnwwfHx8fDE2NzQ5ODUyNTE&ixlib=rb-4.0.3&q=80",
-        url_thumb: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw0MDM1OTJ8MHwxfHNlYXJjaHwyfHxzcG9ydHxlbnwwfHx8fDE2NzQ5ODUyNTE&ixlib=rb-4.0.3&q=80&w=200", liked: "12/02/2022"
-    }]
-
+    favorites: [],
+    allFavorites: []
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -236,6 +199,12 @@ const rootReducer = (state = initialState, action) => {
                         return 0
                     })
                 }
+            }
+
+        case SEARCH_PHOTO_DESCRIPTION:
+            return{
+                ...state,
+                favorites: state.allFavorites.filter(d => d.description.toLowerCase().includes(action.payload.toLowerCase()))
             }
 
 

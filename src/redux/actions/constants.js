@@ -7,3 +7,4 @@ export const ORDER_HEIGTH = 'ORDER_HEIGTH';
 export const ORDER_WIDTH = 'ORDER_WIDTH';
 export const ORDER_LIKES = 'ORDER_LIKES';
 export const ORDER_DATE = 'ORDER_DATE';
+export const SEARCH_PHOTO_DESCRIPTION = 'SEARCH_PHOTO_DESCRIPTION';

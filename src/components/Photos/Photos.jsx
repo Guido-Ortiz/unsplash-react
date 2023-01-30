@@ -7,7 +7,7 @@ import s from './Photos.module.css';
 const Photos = () => {
 
   const photos = useSelector(state => state.photos)
-
+  
   return (
     <div>
       <Header title='Unsplash' subtitle='Internets photo source' />
@@ -15,7 +15,14 @@ const Photos = () => {
           photos
             ? <div className={s.container}>
 
-              {photos.results?.map(e => {
+              {photos.results && photos.results?.map(e => {
+                return(
+                  <div key={e.id}>
+                    <Photo id={e.id} title={e.description} description={e.alt_description} width={e.width} heigth={e.height} likes={e.likes} url_full={e.urls.full} url_thumb={e.urls.thumb} />
+                  </div>
+                )
+              })}
+              {!photos.results && photos.map(e => {
                 return(
                   <div key={e.id}>
                     <Photo id={e.id} title={e.description} description={e.alt_description} width={e.width} heigth={e.height} likes={e.likes} url_full={e.urls.full} url_thumb={e.urls.thumb} />
