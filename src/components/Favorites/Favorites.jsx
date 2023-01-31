@@ -8,18 +8,17 @@ import SearchInput from '../SearchInput/SearchInput';
 import { Typography, Box } from '@mui/material';
 import s from './Favorites.module.css';
 
-
 const Favorites = () => {
 
     const favorites = useSelector(state => state.favorites)
 
     return (
         <div>
-            <Navbar />
+            <Navbar sx={{zIndex: 1}} />
             <Header title='My Photos' subtitle='Take a look at all your saved photos.' />
             <Box sx={{ padding: '10px 0' }}>
                 <SearchInput />
-                <Typography variant='subttitle2' sx={{ color: '#777777', marginLeft: '30px' }}>Order your photos by heigth, width, likes or date.</Typography>
+                <Typography variant='subttitle2' sx={{ color: '#777777', marginLeft: {xs: '30px', md: '60px'} }}>Order your photos as you wish.</Typography>
                 <SelectOrder />
             </Box>
 

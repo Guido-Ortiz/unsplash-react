@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
+import { saveAs } from 'file-saver';
 import { useDispatch } from 'react-redux';
 import { editPhoto, removePhoto } from '../../redux/actions/actions';
-import { Card, CardHeader, CardMedia, CardContent, CardActions, IconButton, Chip, Stack, Tooltip, Modal, Box, Typography, TextField, Button } from '@mui/material';
+import { Card, CardHeader, CardMedia, CardContent, CardActions, IconButton, Chip, Stack, Tooltip, Modal, Box, Typography, TextField, Button, } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import DownloadIcon from '@mui/icons-material/Download';
 import { FavoriteOutlined } from '@mui/icons-material';
-import { saveAs } from 'file-saver';
 
 const style = {
     position: 'absolute',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 400,
+    width: {md: 400, xs: 200},
     bgcolor: 'background.paper',
     border: '1px solid #007DED',
     boxShadow: 24,
@@ -25,17 +25,17 @@ const Favorite = ({ id, title, description, width, heigth, likes, url_full, url_
 
     const [open, setOpen] = useState(false);
     const [newDescription, setNewDescription] = useState(title)
-    // const [input, setInput] = useState('ACA VA MI INPUT')
-
+    
     const handleOpen = () => {
         setOpen(true)
-        // dispatch(editPhoto({id, newDescription}))
-    };
+    }
+
     const handleClose = () => setOpen(false);
 
     const dispatch = useDispatch()
 
     const handleDelete = () => {
+        setOpen(true)
         dispatch(removePhoto(id))
     }
 
@@ -52,7 +52,7 @@ const Favorite = ({ id, title, description, width, heigth, likes, url_full, url_
         <div>
             <Card sx={{ width: 300, borderRadius: '4px', margin: '26px', boxShadow: '0px 0px 0px 1px #E0E0E0' }}>
                 <CardMedia component="img" height="194" image={url_full} alt={description} />
-                <CardHeader title={title ? title : 'Photo'} subheader={liked} />
+                <CardHeader title={title ? title : 'Photo'} subheader={liked} sx={{height: 120 }} />
                 <CardContent sx={{ padding: '0 10px' }}>
                     <Stack direction="row" justifyContent="flex-start" alignItems="flex-start" spacing={1}>
                         <Chip label={`Height: ${heigth}`} sx={{
@@ -84,7 +84,6 @@ const Favorite = ({ id, title, description, width, heigth, likes, url_full, url_
                             </IconButton>
                         </Tooltip>
                     </Stack>
-
                 </CardActions>
             </Card>
 

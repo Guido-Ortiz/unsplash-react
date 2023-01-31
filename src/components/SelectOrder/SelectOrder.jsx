@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { FormControl, InputLabel, Select, MenuItem, Box, Typography, Button } from '@mui/material';
+import { FormControl, InputLabel, Select, MenuItem, Box, Button } from '@mui/material';
 import { orderDate, orderHeigth, orderLikes, orderWidth, resetFilters } from '../../redux/actions/actions';
 
 const SelectOrder = () => {
@@ -41,8 +41,8 @@ const SelectOrder = () => {
     }
 
     return (
-        <Box sx={{ minWidth: 120, marginLeft: '30px', marginTop: '20px'}}>
-            <FormControl sx={{ width: '200px', marginRight: '30px' }}>
+        <Box sx={{ minWidth: 120, marginLeft: {xs: '20px', md: '60px'}, marginRight: {xs: '20px'},marginTop: '20px', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: {xs: 'space-between', md: 'flex-start'}, alignItems: {xs: 'center', md: 'flex-start'}}}>
+            <FormControl sx={{ width: {md: '12.5rem', xs: '7rem'}, marginRight: {md: '30px', xs: '10px'}, marginBottom: {xs: '10px'} }}>
                 <InputLabel id="demo-simple-select-label">Height</InputLabel>
                 <Select labelId="demo-simple-select-label" id="demo-simple-select" value={heigth} label="Height" onChange={handleChange} sx={{background: '#fff'}}>
                     <MenuItem value='all'>All</MenuItem>
@@ -52,7 +52,7 @@ const SelectOrder = () => {
             </FormControl>
 
             {/* WIDTH */}
-            <FormControl sx={{ width: '200px', marginRight: '30px' }}>
+            <FormControl sx={{ width: {md: '12.5rem', xs: '7rem'}, marginRight: {md: '30px', xs: '10px'}, marginBottom: {xs: '10px'} }}>
                 <InputLabel id="demo-simple-select-label">Width</InputLabel>
                 <Select labelId="demo-simple-select-label" id="demo-simple-select" value={width} label="Width" onChange={handleWidth} sx={{background: '#fff'}}>
                     <MenuItem value='all'>All</MenuItem>
@@ -62,7 +62,7 @@ const SelectOrder = () => {
             </FormControl>
 
             {/* LIKES */}
-            <FormControl sx={{ width: '200px', marginRight: '30px' }}>
+            <FormControl sx={{ width: {md: '12.5rem', xs: '7rem'}, marginRight: {md: '30px', xs: '10px'}, marginBottom: {xs: '10px'} }}>
                 <InputLabel id="demo-simple-select-label">Likes</InputLabel>
                 <Select labelId="demo-simple-select-label" id="demo-simple-select" value={likes} label="Likes" onChange={handleLikes} sx={{background: '#fff'}}>
                     <MenuItem value='all'>All</MenuItem>
@@ -72,7 +72,7 @@ const SelectOrder = () => {
             </FormControl>
 
             {/* FECHA */}
-            <FormControl sx={{ width: '200px', marginRight: '30px' }}>
+            <FormControl sx={{ width: {md: '12.5rem', xs: '7rem'}, marginRight: {md: '30px', xs: '10px'}, marginBottom: {xs: '10px'} }}>
                 <InputLabel id="demo-simple-select-label">Date</InputLabel>
                 <Select labelId="demo-simple-select-label" id="demo-simple-select" value={date} label="Date" onChange={handleDate} sx={{background: '#fff'}}>
                     <MenuItem value='all'>All</MenuItem>
@@ -81,7 +81,7 @@ const SelectOrder = () => {
                 </Select>
             </FormControl>
 
-            <Button variant='contained' sx={{height: '50px', width: '100px', letterSpacing: '1px'}} onClick={handleReset}>Reset</Button>
+            <Button variant='contained' sx={{height: '50px', width: {md: '100px', xs: '100%'}, letterSpacing: '1px'}} onClick={handleReset}>Reset</Button>
 
         </Box>
     )

@@ -3,9 +3,9 @@ import { Box, Typography } from '@mui/material';
 
 const Header = ({ title, subtitle }) => {
   return (
-    <Box mt='30px' sx={{ marginLeft: '30px' }}>
-      <Typography variant='h3' sx={{ color: '#007DED' }}>{title}</Typography>
-      <Typography variant='subtitle1' sx={{ color: '#777777' }}>{subtitle}</Typography>
+    <Box sx={{ marginLeft: {xs: '20px', md: '60px'}, marginTop: {xs: '20px', md: '30px'} }}>
+      <Typography sx={{ color: '#007DED', fontSize: {xs: '2rem', md: '2.5rem'} }}>{title}</Typography>
+      <Typography sx={{ color: '#777777', fontSize: {xs: '1rem', md: '1.8rem'} }}>{subtitle}</Typography>
     </Box>
   )
 }

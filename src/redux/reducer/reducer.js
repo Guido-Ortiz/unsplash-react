@@ -17,7 +17,7 @@ const rootReducer = (state = initialState, action) => {
                 allPhotos: action.payload,
                 filters: action.payload
             }
-        //break;
+        
         case SEARCH_PHOTOS:
             return {
                 ...state,
@@ -86,6 +86,7 @@ const rootReducer = (state = initialState, action) => {
                     })
                 }
             }
+            break;
 
         case ORDER_WIDTH:
             let width = [...state.allFavorites]
@@ -124,6 +125,7 @@ const rootReducer = (state = initialState, action) => {
                     })
                 }
             }
+            break;
 
         case ORDER_LIKES:
             let likes = [...state.allFavorites]
@@ -162,6 +164,7 @@ const rootReducer = (state = initialState, action) => {
                     })
                 }
             }
+            break;
 
         case ORDER_DATE:
             let date = [...state.allFavorites]
@@ -200,6 +203,7 @@ const rootReducer = (state = initialState, action) => {
                     })
                 }
             }
+            break;
 
         case SEARCH_PHOTO_DESCRIPTION:
             return{
@@ -212,8 +216,6 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 favorites: [...state.allFavorites]
             }
-
-
 
         default:
             return state

@@ -22,9 +22,7 @@ const Landing = () => {
           <div className={s.subtitle}>With resources from creators around the world.</div>
         </div>
         <Stack
-          // direction='row' justifyContent='flex-start' alignItems='center' 
           sx={{
-            // border: { md: '1px solid red', xs: '1px solid blue' }
             marginLeft: '20px', padding: '10px', display: { xs: 'column' },
             flexDirection: { md: 'row', xs: 'column' }, justifyContent: 'flex-start', alignItems: { md: 'center', xs: 'flex-start'}, width: {xs: '80%'}
           }}>
