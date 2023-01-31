@@ -15,20 +15,29 @@ const Landing = () => {
 
   return (
     <div className={s.wrapper}>
-        <div className={s.container}>
-            <div>
-                <div className={s.title}>Unsplash Photos</div>
-                <div className={s.subtitle}>Internets photo source.</div>
-                <div className={s.subtitle}>With resources from creators around the world.</div>
-            </div>
-            <Stack direction='row' justifyContent='flex-start' alignItems='center' sx={{marginLeft: '20px', padding: '10px'}}>
-              <TextField label="Search Photos" variant="outlined" name='search' value={search} onChange={e => setSearch(e.target.value)} sx={{height: '50px', width: '410px', letterSpacing: '1px',}} />
-              <Link to='/home' style={{ textDecoration: 'none' }}>
-                  {/* <button className={s.btn} >See more!</button> */}
-                  <Button variant="contained" onClick={handleSearch} sx={{marginLeft: '30px', height: '50px', width: '150px', letterSpacing: '1px',}}>Search!</Button>
-              </Link>
-            </Stack>
+      <div className={s.container}>
+        <div>
+          <div className={s.title}>Unsplash Photos</div>
+          <div className={s.subtitle}>Internets photo source.</div>
+          <div className={s.subtitle}>With resources from creators around the world.</div>
         </div>
+        <Stack
+          // direction='row' justifyContent='flex-start' alignItems='center' 
+          sx={{
+            // border: { md: '1px solid red', xs: '1px solid blue' }
+            marginLeft: '20px', padding: '10px', display: { xs: 'column' },
+            flexDirection: { md: 'row', xs: 'column' }, justifyContent: 'flex-start', alignItems: { md: 'center', xs: 'flex-start'}, width: {xs: '80%'}
+          }}>
+          <TextField label="Search Photos" variant="outlined" name='search' value={search} onChange={e => setSearch(e.target.value)}
+            sx={{ height: '50px', width: {md:'410px', xs: '100%'}, letterSpacing: '1px' }} />
+          <Link to='/home' style={{ textDecoration: 'none' }}>
+            <Button variant="contained" onClick={handleSearch}
+              sx={{ marginLeft: {md: '30px', xs: '0px'}, height: '50px', width: {md:'150px', xs: '260px'}, letterSpacing: '1px', marginTop: {xs: '20px'}}}>
+              Search!
+            </Button>
+          </Link>
+        </Stack>
+      </div>
     </div>
   )
 }
