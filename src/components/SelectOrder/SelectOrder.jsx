@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { FormControl, InputLabel, Select, MenuItem, Box, Typography } from '@mui/material';
-import { orderDate, orderHeigth, orderLikes, orderWidth } from '../../redux/actions/actions';
+import { FormControl, InputLabel, Select, MenuItem, Box, Typography, Button } from '@mui/material';
+import { orderDate, orderHeigth, orderLikes, orderWidth, resetFilters } from '../../redux/actions/actions';
 
 const SelectOrder = () => {
     const [heigth, setHeigth] = useState('')
@@ -33,6 +33,11 @@ const SelectOrder = () => {
         e.preventDefault()
         dispatch(orderDate(e.target.value))
         setDate(e.target.value)
+    }
+
+    const handleReset = () => {
+        window.location.reload()
+        dispatch(resetFilters())
     }
 
     return (
@@ -75,6 +80,8 @@ const SelectOrder = () => {
                     <MenuItem value='old'>Oldest</MenuItem>
                 </Select>
             </FormControl>
+
+            <Button variant='contained' sx={{height: '50px', width: '100px', letterSpacing: '1px'}} onClick={handleReset}>Reset</Button>
 
         </Box>
     )

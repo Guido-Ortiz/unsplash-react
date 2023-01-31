@@ -1,4 +1,4 @@
-import { ADD_PHOTO, GET_PHOTOS, REMOVE_PHOTO, SEARCH_PHOTOS, EDIT_PHOTO, ORDER_HEIGTH, ORDER_WIDTH, ORDER_LIKES, ORDER_DATE, SEARCH_PHOTO_DESCRIPTION } from "../actions/constants";
+import { ADD_PHOTO, GET_PHOTOS, REMOVE_PHOTO, SEARCH_PHOTOS, EDIT_PHOTO, ORDER_HEIGTH, ORDER_WIDTH, ORDER_LIKES, ORDER_DATE, SEARCH_PHOTO_DESCRIPTION, RESET_FILTERS } from "../actions/constants";
 
 const initialState = {
     photos: [],
@@ -205,6 +205,12 @@ const rootReducer = (state = initialState, action) => {
             return{
                 ...state,
                 favorites: state.allFavorites.filter(d => d.description.toLowerCase().includes(action.payload.toLowerCase()))
+            }
+
+        case RESET_FILTERS:
+            return{
+                ...state,
+                favorites: [...state.allFavorites]
             }
 
 
