@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ADD_PHOTO, GET_PHOTOS, REMOVE_PHOTO, SEARCH_PHOTOS, EDIT_PHOTO, ORDER_HEIGTH, ORDER_WIDTH, ORDER_LIKES, ORDER_DATE, SEARCH_PHOTO_DESCRIPTION, RESET_FILTERS } from './constants';
+import { ADD_PHOTO, GET_PHOTOS, REMOVE_PHOTO, SEARCH_PHOTOS, EDIT_PHOTO, ORDER_HEIGTH, ORDER_WIDTH, ORDER_LIKES, ORDER_DATE, SEARCH_PHOTO_DESCRIPTION, RESET_FILTERS, FILTER } from './constants';
 
 export function getPhotos(){
     return async function(dispatch){
@@ -102,5 +102,12 @@ export function searchPhotoDescription(payload){
 export function resetFilters(){
     return{
         type: RESET_FILTERS,
+    }
+}
+
+export function filterPhoto(payload){
+    return{
+        type: FILTER,
+        payload
     }
 }

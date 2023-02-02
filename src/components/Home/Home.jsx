@@ -5,8 +5,8 @@ import Photos from '../Photos/Photos';
 const Home = () => {
 
   return (
-    <div>
-      <Navbar />
+    <div >
+      <Navbar  />
      <Photos />
     </div>
   )

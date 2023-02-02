@@ -1,4 +1,4 @@
-import { ADD_PHOTO, GET_PHOTOS, REMOVE_PHOTO, SEARCH_PHOTOS, EDIT_PHOTO, ORDER_HEIGTH, ORDER_WIDTH, ORDER_LIKES, ORDER_DATE, SEARCH_PHOTO_DESCRIPTION, RESET_FILTERS } from "../actions/constants";
+import { ADD_PHOTO, GET_PHOTOS, REMOVE_PHOTO, SEARCH_PHOTOS, EDIT_PHOTO, ORDER_HEIGTH, ORDER_WIDTH, ORDER_LIKES, ORDER_DATE, SEARCH_PHOTO_DESCRIPTION, RESET_FILTERS, FILTER } from "../actions/constants";
 
 const initialState = {
     photos: [],
@@ -215,6 +215,17 @@ const rootReducer = (state = initialState, action) => {
             return{
                 ...state,
                 favorites: [...state.allFavorites]
+            }
+
+        case FILTER:
+            console.log(action.payload)
+            return{
+                ...state,
+                favorites: state.allFavorites.filter(photo => {
+                    if(photo.description.toUpperCase().includes(action.payload.toUpperCase())){
+                        return true
+                    } else return false
+                })
             }
 
         default:

@@ -9,3 +9,4 @@ export const ORDER_LIKES = 'ORDER_LIKES';
 export const ORDER_DATE = 'ORDER_DATE';
 export const SEARCH_PHOTO_DESCRIPTION = 'SEARCH_PHOTO_DESCRIPTION';
 export const RESET_FILTERS = 'RESET_FILTERS';
+export const FILTER = 'FILTER';

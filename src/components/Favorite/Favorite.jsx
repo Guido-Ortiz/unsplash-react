@@ -50,7 +50,7 @@ const Favorite = ({ id, title, description, width, heigth, likes, url_full, url_
 
     return (
         <div>
-            <Card sx={{ width: 300, borderRadius: '4px', margin: '26px', boxShadow: '0px 0px 0px 1px #E0E0E0' }}>
+            <Card sx={{ width: {md: 300, xs: 265}, borderRadius: '4px', margin: '26px', boxShadow: '0px 0px 0px 1px #E0E0E0' }}>
                 <CardMedia component="img" height="194" image={url_full} alt={description} />
                 <CardHeader title={title ? title : 'Photo'} subheader={liked} sx={{height: 120 }} />
                 <CardContent sx={{ padding: '0 10px' }}>

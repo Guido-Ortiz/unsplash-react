@@ -63,8 +63,8 @@ const Navbar = () => {
   );
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: '#007DED', width: '100vw', position: 'sticky', top: 0, zIndex: 1 }}>
-      <Container maxWidth="xl">
+    <AppBar position="static" sx={{ backgroundColor: '#007DED', width: {md: '98.85vw', xs: '100vw'}, position: 'sticky', top: 0, zIndex: 1}}>
+      <Container maxWidth="xl" sx={{width: '100% !important'}}>
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Link to='/' style={{ textDecoration: 'none' }}>
