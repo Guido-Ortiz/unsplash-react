@@ -14,13 +14,6 @@ const SearchInput = () => {
         dispatch(searchPhotoDescription(search))
     }
 
-    // useEffect(() => {
-    //     window.addEventListener('keydown', e => { //keypress
-    //         // console.log(e.key)
-    //         dispatch(filterPhoto(search))
-    //       }); 
-    // }, [search])
-
     const handleChange = (e) => {
         setSearch(e.target.value)
         dispatch(searchPhotoDescription(search))
