@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Paper, InputBase, IconButton } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-import { filterPhoto, searchPhotoDescription } from '../../redux/actions/actions';
+import { searchPhotoDescription } from '../../redux/actions/actions';
 import { useDispatch } from 'react-redux';
 
 const SearchInput = () => {
